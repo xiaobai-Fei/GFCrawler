@@ -50,9 +50,9 @@ public class ParseAnswers {
             String answer = getText(elements);
 
             //封装解析结果
-            answerModel.setAnswer(answer);
-            answerModel.setUserName(name);
-            answerModel.setUserToken(url_token);
+//            answerModel.setAnswer(answer);
+//            answerModel.setUserName(name);
+//            answerModel.setUserToken(url_token);
 
             resultModel.add(answerModel);
 

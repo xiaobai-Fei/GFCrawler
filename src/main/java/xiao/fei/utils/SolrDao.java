@@ -20,9 +20,9 @@ public class SolrDao {
 
     public SolrInputDocument constructSolrInputDocument(AnswerModel answer) {
         SolrInputDocument inputDocument = new SolrInputDocument();
-        inputDocument.addField("user_token", answer.getUserToken());
-        inputDocument.addField("user_name",answer.getUserName());
-        inputDocument.addField("answers", answer.getAnswer());
+//        inputDocument.addField("user_token", answer.getUserToken());
+//        inputDocument.addField("user_name",answer.getUserName());
+//        inputDocument.addField("answers", answer.getAnswer());
         return inputDocument;
     }
 

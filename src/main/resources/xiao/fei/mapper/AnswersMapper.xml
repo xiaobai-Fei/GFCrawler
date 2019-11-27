@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace属性是名称空间，必须唯一 -->
+<mapper namespace="xiao.fei.mapper.AnswerModelMapper">
+    <!-- resultMap标签:映射实体与表
+         type属性：表示实体全路径名
+         id属性：为实体与表的映射取一个任意的唯一的名字
+    -->
+    <resultMap type="AnswerModel" id="answerMap">
+        <!-- id标签:映射主键属性
+             result标签：映射非主键属性
+             property属性:实体的属性名
+             column属性：表的字段名
+        -->
+        <id property="answer_id" column="answer_id" />
+        <result property="answerer_id" column="answerer_id"/>
+        <result property="url_token" column="url_token"/>
+        <result property="gender"  column="gender" />
+
+        <result property="age" column="age"/>
+        <result property="height" column="height"/>
+        <result property="weight" column="weight"/>
+        <result property="beauty" column="beauty"/>
+
+        <result property="face_shape" column="face_shape"/>
+        <result property="pic_num" column="pic_num"/>
+        <result property="follower_count" column="follower_count"/>
+        <result property="headline" column="headline"/>
+        <result property="content" column="content"/>
+
+        <result property="voteup_count" column="voteup_count"/>
+        <result property="comment_count" column="comment_count"/>
+        <result property="create_time" column="create_time"/>
+        <result property="update_time" column="update_time"/>
+
+    </resultMap>
+    <insert id="insert_answer" parameterType="AnswerModel">
+		INSERT INTO zhihu.answers (answer_id, answerer_id, url_token,
+		 name, gender, age, height, weight, beauty, face_shape, pic_num,
+		  follower_count, headline, content, voteup_count, comment_count,
+		   create_time, update_time) VALUES
+		   (#{answer_id},#{answerer_id},#{url_token},#{name},#{gender},#{age},#{height},#{weight},
+		   #{beauty},#{face_shape},#{pic_num},#{follower_count},#{headline},
+		   #{content},#{voteup_count},#{comment_count},#{create_time},#{update_time});
+	</insert>
+
+    <select id="findAnswerById" parameterType="String" resultMap="answerMap">
+		SELECT * FROM zhihu.answers WHERE answer_id = #{answer_id}
+	</select>
+
+    <select id="findAll"  resultMap="answerMap">
+		SELECT * FROM zhihu.answers;
+	</select>
+
+    <delete id="delete" parameterType="String">
+		DELETE FROM zhihu.answers WHERE answer_id = #{answer_id}
+	</delete>
+
+    <update id="update" parameterType="AnswerModel">
+		update students set name=#{name},sal=#{sal} where id=#{id};
+	</update>
+
+</mapper>
